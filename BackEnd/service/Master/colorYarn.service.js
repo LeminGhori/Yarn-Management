@@ -77,19 +77,19 @@ exports.editColorYarnDetail = async (data, token) => {
       };
     }
 
-    const existingColorShade = await colorYarnModel.findOne({
-      colorQuality: { $regex: new RegExp(data.colorQuality, "i") },
-    });
-    if (
-      existingColorShade &&
-      existingColorShade.tokenId !== token &&
-      existingColorShade.colorQuality.toLowerCase() === data.colorQuality.toLowerCase()
-    ) {
-      return {
-        status: 400,
-        message: "ColorYarn colorQuality cannot be the same!",
-      };
-    }
+    // const existingColorShade = await colorYarnModel.findOne({
+    //   colorQuality: { $regex: new RegExp(data.colorQuality, "i") },
+    // });
+    // if (
+    //   existingColorShade &&
+    //   existingColorShade.tokenId !== token &&
+    //   existingColorShade.colorQuality.toLowerCase() === data.colorQuality.toLowerCase()
+    // ) {
+    //   return {
+    //     status: 400,
+    //     message: "ColorYarn colorQuality cannot be the same!",
+    //   };
+    // }
 
     const colorYarnData = {
       colorCode: data.colorCode,
