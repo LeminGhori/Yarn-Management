@@ -1,8 +1,8 @@
 import Cookies from 'js-cookie';
 const initialState = {
-    login: false,
+    login: (localStorage.getItem('token') !== null && localStorage.getItem('token') !== undefined),
     modelData: [],
-    isAdmin: null,
+    isAdmin: localStorage.getItem("isAdmin"),
 };
 
 const user = (state = initialState, action) => {

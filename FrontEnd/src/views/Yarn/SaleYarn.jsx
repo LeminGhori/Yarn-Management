@@ -50,6 +50,10 @@ const SaleYarn = () => {
                 page: "SaleYarn",
                 fieldData: [
                     {
+                        name: "Date",
+                        type: "date",
+                    },
+                    {
                         name: "Sale Party",
                         type: "select",
                         option: extractedParty,
@@ -87,10 +91,6 @@ const SaleYarn = () => {
                         name: "Lot No",
                         type: "text",
                         disabled: true,
-                    },
-                    {
-                        name: "Date",
-                        type: "date",
                     },
                     {
                         name: "Price",

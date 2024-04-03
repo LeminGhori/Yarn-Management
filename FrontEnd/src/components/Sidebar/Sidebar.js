@@ -18,7 +18,7 @@ import {
 } from "@chakra-ui/react";
 import IconBox from "components/Icons/IconBox";
 import { HSeparator } from "components/Separator/Separator";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Scrollbars } from "react-custom-scrollbars";
 import { NavLink, useLocation } from "react-router-dom";
 import { UpIcon } from "components/Icons/Icons";
@@ -45,6 +45,15 @@ function Sidebar(props) {
   const activeRoute = (routeName) => {
     return location.pathname === routeName ? "active" : "";
   };
+  useEffect(() => {
+    if (location.pathname == '/admin/company' || location.pathname == '/admin/party' || location.pathname == '/admin/color-yarn' || location.pathname == '/admin/design' || location.pathname == '/admin/matching') {
+      setActive('Dashboard')
+    }
+    else if (location.pathname == '/admin/purchase-yarn' || location.pathname == '/admin/stock-yarn' || location.pathname == '/admin/sale-yarn') {
+      setActive('Yarn')
+    }
+    activeRoute(location.pathname);
+  }, []);
   // this function creates the links and collapses that appear in the sidebar (left menu)
   let activeBg = useColorModeValue("white", "navy.700");
   let inactiveBg = useColorModeValue("white", "navy.700");
@@ -297,7 +306,6 @@ function SidebarResponsive(props) {
   // to check for active links and opened collapses
   let location = useLocation();
   const [active, setActive] = React.useState('');
-
   const { logo, routes, colorMode, hamburgerColor, ...rest } = props;
 
   // this is for the rest of the collapses
@@ -307,6 +315,15 @@ function SidebarResponsive(props) {
   const activeRoute = (routeName) => {
     return location.pathname === routeName ? "active" : "";
   };
+  useEffect(() => {
+    if (location.pathname == '/admin/company' || location.pathname == '/admin/party' || location.pathname == '/admin/color-yarn' || location.pathname == '/admin/design' || location.pathname == '/admin/matching') {
+      setActive('Dashboard')
+    }
+    else if (location.pathname == '/admin/purchase-yarn' || location.pathname == '/admin/stock-yarn' || location.pathname == '/admin/sale-yarn') {
+      setActive('Yarn')
+    }
+    activeRoute(location.pathname);
+  }, []);
   // Color Mode
   let activeBg = useColorModeValue("white", "navy.700");
   let inactiveBg = useColorModeValue("white", "navy.700");

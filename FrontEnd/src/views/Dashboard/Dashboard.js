@@ -159,6 +159,7 @@ export default function Dashboard() {
             </Box> */}
             <Box id="multi-select">
               <Select
+                autoComplete='off'
                 className="basic-single"
                 classNamePrefix="select"
                 defaultValue="ghana"

@@ -165,6 +165,7 @@ function Design() {
                                 name={`card-${row}`}
                                 placeholder={`Enter Card ${row}`}
                                 type="number"
+                                autoComplete='off'
                                 onChange={(e) => {
                                     handleCardChange(e, form, row);
                                 }}
@@ -1120,6 +1121,7 @@ function Design() {
                                                                                                 name={`card-${row}`}
                                                                                                 placeholder={`Enter Card ${row}`}
                                                                                                 type="number"
+                                                                                                autoComplete='off'
                                                                                                 onChange={(e) => {
                                                                                                     handleCardChange(e, form, row);
                                                                                                 }}

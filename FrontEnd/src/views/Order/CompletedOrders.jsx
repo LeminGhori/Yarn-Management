@@ -158,12 +158,25 @@ const CompletedOrders = () => {
 
     const tableData = Array.isArray(data)
         ? data
-            ?.filter(
-                (item) => {
-                    const seconds = new Date(item.createdAt).getTime() / 1000;
-                    return seconds.toString().split(' ').map((word, index) => index === 0 ? word.toLowerCase() : word.charAt(0).toUpperCase() + word.slice(1)).join('').includes(filterText.split(' ').map((word, index) => index === 0 ? word.toLowerCase() : word.charAt(0).toUpperCase() + word.slice(1)).join(''))
-                }
-            )
+            ?.filter((item) => {
+                // Split filterText into individual words
+                const filterWords = filterText.toLowerCase().split(' ');
+
+                // Check if any property of item includes any part of filterText
+                return Object.entries(item).some(([key, value]) => {
+                    // Exclude checking the _id property
+                    if (key === '_id' || key === 'tokenId') return false;
+
+                    if (typeof value === 'number') {
+                        value = value.toString(); // Convert number to string
+                    }
+                    if (typeof value === 'string') {
+                        const lowerCaseValue = value.toLowerCase();
+                        return filterWords.every(word => lowerCaseValue.includes(word));
+                    }
+                    return false;
+                });
+            })
             ?.map((user, index) => {
                 const rowData = {};
 

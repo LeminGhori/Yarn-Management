@@ -48,6 +48,11 @@ const StockYarn = () => {
                 page: "StockYarn",
                 fieldData: [
                     {
+                        name: "Date",
+                        type: "date",
+                        displayNone: true,
+                    },
+                    {
                         name: "Sale Party",
                         type: "select",
                         option: extractedParty,
@@ -87,11 +92,6 @@ const StockYarn = () => {
                     {
                         name: "Invoice No",
                         type: "number",
-                        displayNone: true,
-                    },
-                    {
-                        name: "Date",
-                        type: "date",
                         displayNone: true,
                     },
                     {

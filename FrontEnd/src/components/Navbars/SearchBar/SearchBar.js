@@ -39,6 +39,7 @@ export function SearchBar(props) {
         fontSize='xs'
         bg={inputBg}
         value={value}
+        autoComplete='off'
         onChange={(e) => {
           setFilterText(e.target.value)
         }}

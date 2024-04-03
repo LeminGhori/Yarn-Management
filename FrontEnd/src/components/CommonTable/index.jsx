@@ -246,36 +246,23 @@ const Filtering = ({ error, isError, isLoading, data, page, tableTitle, url, set
     const tableData = Array.isArray(data)
         ? data
             ?.filter((item) => {
-                const primaryConditions =
-                    (item.name &&
-                        item.name.toLowerCase().includes(filterText.toLowerCase())) ||
-                    (!item.name &&
-                        item.colorCode &&
-                        item.colorCode.toLowerCase().includes(filterText.toLowerCase())) ||
-                    (!item.name &&
-                        !item.colorCode &&
-                        item.machine &&
-                        item.machine.toLowerCase().includes(filterText.toLowerCase())) ||
-                    (!item.name &&
-                        !item.colorCode &&
-                        item.date &&
-                        item.date.toLowerCase().includes(filterText.toLowerCase())) ||
-                    !item.name &&
-                    !item.colorCode &&
-                    !item.date &&
-                    item.designName &&
-                    item.designName.toLowerCase().includes(filterText.toLowerCase());
-                if (primaryConditions) {
-                    return true; // At least one primary condition is true
-                } else if (modelData?.page === "Editmatching") {
-                    const seconds = new Date(item.createdAt).getTime() / 1000;
-                    return seconds.toString().split(' ').map((word, index) => index === 0 ? word.toLowerCase() : word.charAt(0).toUpperCase() + word.slice(1)).join('').includes(filterText.split(' ').map((word, index) => index === 0 ? word.toLowerCase() : word.charAt(0).toUpperCase() + word.slice(1)).join('').replace(/(\([^)]*\))/g, ''))
-                }
-                else {
-                    // Secondary filtering condition when all primary conditions fail
-                    const seconds = new Date(item.createdAt).getTime() / 1000;
-                    return seconds.toString().split(' ').map((word, index) => index === 0 ? word.toLowerCase() : word.charAt(0).toUpperCase() + word.slice(1)).join('').includes(filterText.split(' ').map((word, index) => index === 0 ? word.toLowerCase() : word.charAt(0).toUpperCase() + word.slice(1)).join('').replace(/(\([^)]*\))/g, ''))
-                }
+                // Split filterText into individual words
+                const filterWords = filterText.toLowerCase().split(' ');
+
+                // Check if any property of item includes any part of filterText
+                return Object.entries(item).some(([key, value]) => {
+                    // Exclude checking the _id property
+                    if (key === '_id' || key === 'tokenId') return false;
+
+                    if (typeof value === 'number') {
+                        value = value.toString(); // Convert number to string
+                    }
+                    if (typeof value === 'string') {
+                        const lowerCaseValue = value.toLowerCase();
+                        return filterWords.every(word => lowerCaseValue.includes(word));
+                    }
+                    return false;
+                });
             })
             ?.map((user, index) => {
                 const rowData = {};

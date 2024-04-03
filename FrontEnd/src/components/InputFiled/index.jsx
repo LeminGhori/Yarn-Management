@@ -84,6 +84,7 @@ export const InputField = ({
                     disabled={disabled}
                     onChange={handleChange}
                     type={type === "email" ? 'email' : "text"}
+                    autoComplete='off'
                 />
             ) : (
                 <Input
@@ -92,6 +93,7 @@ export const InputField = ({
                     placeholder={placeholder}
                     disabled={disabled}
                     onChange={handleInputChange}
+                    autoComplete='off'
                 />
             )}
             <ErrorMessage name={name}>
@@ -155,6 +157,7 @@ export const InputDateField = ({
                 type="date"
                 value={formattedDate}
                 onChange={handleChangeDate}
+                autoComplete='off'
             />
             <ErrorMessage name={name}>
                 {(msg) => (
@@ -188,6 +191,7 @@ export const InputFiledNR = ({
                 type={inputType}
                 value={value}
                 onChange={handleInput}
+                autoComplete='off'
             />
             {isError && (
                 <FormErrorMessage m="0" alignItems="start" fontSize=".8rem" pt="4px" fontWeight="bold">
@@ -213,6 +217,7 @@ export const InputImage = ({ name, placeholder, form, field, label, styles, clas
                 name={name}
                 placeholder={placeholder}
                 onChange={handleInputChange}
+                autoComplete='off'
             />
             <ErrorMessage name={name}>
                 {(msg) => (
@@ -233,6 +238,7 @@ export const InputCheckBox = ({ label, isError }) => {
                     {...(isError ? { ...inputStyle, ...errorStyle } : inputStyle)}
                     label={label}
                     name={label}
+                    autoComplete='off'
                 />
                 <FormLabel ms="8px" mb="0px" fontSize="1.2rem" fontWeight="normal" >
                     {label}
@@ -266,7 +272,7 @@ export const InputRadioButton = ({ label, options, isError }) => {
                                     <Radio
                                         key={option.value}
                                         value={option.value}
-
+                                        autoComplete='off'
                                         isInvalid={isError}
                                     />
                                     <Flex ml="8px" fontSize="1.2rem" fontWeight="normal">{option.label}</Flex>
@@ -307,6 +313,7 @@ export const InputSelectBox = ({ name, disabled = false, placeholder, options, f
                                 {...field}
                                 disabled={disabled}
                                 name={name}
+                                autoComplete='off'
                             >
                                 <option value="" disabled>{placeholder}</option>
                                 {options?.map((option) => (
@@ -320,6 +327,7 @@ export const InputSelectBox = ({ name, disabled = false, placeholder, options, f
                             <Select
                                 {...field}
                                 name={name}
+                                autoComplete='off'
                                 disabled={disabled}
                                 onChange={(e) => {
                                     handleSelectChange(e, form);
@@ -360,6 +368,7 @@ export const InputMultiSelect = ({
                 {label}
             </FormLabel>
             <CUIAutoComplete
+                autoComplete='off'
                 label="Choose preferred work locations"
                 placeholder="Type a Country"
                 //   onCreateItem={handleCreateItem}

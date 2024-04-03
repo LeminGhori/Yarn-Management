@@ -119,7 +119,6 @@ function AddMatching({ setIsAddPage, setIsFetch, colorCode, setColorCode }) {
     const handleSubmit = () => {
 
     }
-    console.log(data);
     return (
         <>
             {isLoading == true ?
@@ -133,162 +132,162 @@ function AddMatching({ setIsAddPage, setIsFetch, colorCode, setColorCode }) {
                     />
                 </Flex>
                 :
-        <Card
-            overflowX={{ sm: "scroll", xl: "hidden" }}
-            p="25px"
-            className="common-table"
-        >
-            <CardHeader
-                p="6px 0px 0px 0px"
-                display="flex"
-                justifyContent="space-between"
-                flexDirection={{ sm: "column", md: "row" }}
-            >
-                <Flex alignItems="center" gap="5px">
-                    <BackIcon
-                        fontSize="1.3rem"
-                        mb="4px"
-                        cursor="pointer"
-                        onClick={() => {
-                            setIsAddPage(false);
-                            dispatch(modelEdit(false));
-                            setIsFetch(true)
-                            dispatch(parentSelectedData(null))
-                        }}
-                    />
-                    <Text fontSize="xl" color={textColor} fontWeight="bold">
-                        Edit Matching
-                    </Text>
-                </Flex>
-            </CardHeader>
-            <Box>
-                <Formik
-                    initialValues={initialValues}
-                    validationSchema={validationSchema}
-                    onSubmit={handleSubmit}
+                <Card
+                    overflowX={{ sm: "scroll", xl: "hidden" }}
+                    p="25px"
+                    className="common-table"
                 >
-                    <Form>
-                        <Flex
-                            // justifyContent="space-between"
-                            width="100%"
-                            flexWrap={{
-                                "2xl": "6px",
-                                xl: "wrap",
-                                lg: "wrap",
-                                md: "wrap",
-                                sm: "wrap",
-                            }}
-                        >
-                            <Box
-                                mr={{
-                                    "2xl": "6px",
-                                    xl: "5px",
-                                    lg: "4.5px",
-                                    md: "4px",
-                                    sm: "0px",
+                    <CardHeader
+                        p="6px 0px 0px 0px"
+                        display="flex"
+                        justifyContent="space-between"
+                        flexDirection={{ sm: "column", md: "row" }}
+                    >
+                        <Flex alignItems="center" gap="5px">
+                            <BackIcon
+                                fontSize="1.3rem"
+                                mb="4px"
+                                cursor="pointer"
+                                onClick={() => {
+                                    setIsAddPage(false);
+                                    dispatch(modelEdit(false));
+                                    setIsFetch(true)
+                                    dispatch(parentSelectedData(null))
                                 }}
-                                w={{
-                                    "2xl": "19.5%",
-                                    xl: "24%",
-                                    lg: "32.5%",
-                                    md: "49%",
-                                    sm: "100%",
-                                }}
-                            >
-                                <Field
-                                    name="name"
-                                    render={({ field, form }) => (
-                                        <InputField
-                                            name="name"
-                                            label="Name"
-                                            placeholder={`Enter Name`}
-                                            form={form}
-                                            field={field}
-                                            type='text'
-                                            disabled={true}
-                                        />
-                                    )}
-                                />
-                            </Box>
-                            <Box
-                                mr={{
-                                    "2xl": "6px",
-                                    xl: "5px",
-                                    lg: "4.5px",
-                                    md: "4px",
-                                    sm: "0px",
-                                }}
-                                w={{
-                                    "2xl": "19.5%",
-                                    xl: "24%",
-                                    lg: "32.5%",
-                                    md: "49%",
-                                    sm: "100%",
-                                }}
-                            >
-                                <Field
-                                    name="pick"
-                                    render={({ field, form }) => (
-                                        <InputField
-                                            name="pick"
-                                            label="Pick"
-                                            placeholder={`Enter Pick`}
-                                            form={form}
-                                            field={field}
-                                            type='text'
-                                            disabled={true}
-                                        />
-                                    )}
-                                />
-                            </Box>
-                            <Box
-                                mr={{
-                                    "2xl": "6px",
-                                    xl: "5px",
-                                    lg: "4.5px",
-                                    md: "4px",
-                                    sm: "0px",
-                                }}
-                                w={{
-                                    "2xl": "19.5%",
-                                    xl: "24%",
-                                    lg: "32.5%",
-                                    md: "49%",
-                                    sm: "100%",
-                                }}
-                            >
-                                <Box
-                                    mt={{
-                                        "2xl": "28px",
-                                        xl: "28px",
-                                        lg: "28px",
-                                        md: "0%",
-                                        sm: "0%",
-                                    }}>
-                                    <AddButton
-                                        url={postUrl} setIsFetch={setIsFetchMatching} toast={toast} />
-                                </Box>
-                            </Box>
+                            />
+                            <Text fontSize="xl" color={textColor} fontWeight="bold">
+                                Edit Matching
+                            </Text>
                         </Flex>
-                    </Form>
-                </Formik>
-                <Box mt="25px">
-                    <CommonTable
-                        data={data}
-                        isLoading={isLoading}
-                        isError={isError}
-                        error={error}
-                        page="Editmatching"
-                        tableTitle="Matchings Data"
-                        url={putUrl}
-                        deleteUrl={deleteUrl}
-                        setIsFetch={setIsFetchMatching}
-                        toast={toast}
-                    />
-                </Box>
-            </Box>
-            <ToastContainer autoClose={2000} />
-        </Card>
+                    </CardHeader>
+                    <Box>
+                        <Formik
+                            initialValues={initialValues}
+                            validationSchema={validationSchema}
+                            onSubmit={handleSubmit}
+                        >
+                            <Form>
+                                <Flex
+                                    // justifyContent="space-between"
+                                    width="100%"
+                                    flexWrap={{
+                                        "2xl": "6px",
+                                        xl: "wrap",
+                                        lg: "wrap",
+                                        md: "wrap",
+                                        sm: "wrap",
+                                    }}
+                                >
+                                    <Box
+                                        mr={{
+                                            "2xl": "6px",
+                                            xl: "5px",
+                                            lg: "4.5px",
+                                            md: "4px",
+                                            sm: "0px",
+                                        }}
+                                        w={{
+                                            "2xl": "19.5%",
+                                            xl: "24%",
+                                            lg: "32.5%",
+                                            md: "49%",
+                                            sm: "100%",
+                                        }}
+                                    >
+                                        <Field
+                                            name="name"
+                                            render={({ field, form }) => (
+                                                <InputField
+                                                    name="name"
+                                                    label="Name"
+                                                    placeholder={`Enter Name`}
+                                                    form={form}
+                                                    field={field}
+                                                    type='text'
+                                                    disabled={true}
+                                                />
+                                            )}
+                                        />
+                                    </Box>
+                                    <Box
+                                        mr={{
+                                            "2xl": "6px",
+                                            xl: "5px",
+                                            lg: "4.5px",
+                                            md: "4px",
+                                            sm: "0px",
+                                        }}
+                                        w={{
+                                            "2xl": "19.5%",
+                                            xl: "24%",
+                                            lg: "32.5%",
+                                            md: "49%",
+                                            sm: "100%",
+                                        }}
+                                    >
+                                        <Field
+                                            name="pick"
+                                            render={({ field, form }) => (
+                                                <InputField
+                                                    name="pick"
+                                                    label="Pick"
+                                                    placeholder={`Enter Pick`}
+                                                    form={form}
+                                                    field={field}
+                                                    type='text'
+                                                    disabled={true}
+                                                />
+                                            )}
+                                        />
+                                    </Box>
+                                    <Box
+                                        mr={{
+                                            "2xl": "6px",
+                                            xl: "5px",
+                                            lg: "4.5px",
+                                            md: "4px",
+                                            sm: "0px",
+                                        }}
+                                        w={{
+                                            "2xl": "19.5%",
+                                            xl: "24%",
+                                            lg: "32.5%",
+                                            md: "49%",
+                                            sm: "100%",
+                                        }}
+                                    >
+                                        <Box
+                                            mt={{
+                                                "2xl": "28px",
+                                                xl: "28px",
+                                                lg: "28px",
+                                                md: "0%",
+                                                sm: "0%",
+                                            }}>
+                                            <AddButton
+                                                url={postUrl} setIsFetch={setIsFetchMatching} toast={toast} />
+                                        </Box>
+                                    </Box>
+                                </Flex>
+                            </Form>
+                        </Formik>
+                        <Box mt="25px">
+                            <CommonTable
+                                data={data}
+                                isLoading={isLoading}
+                                isError={isError}
+                                error={error}
+                                page="Editmatching"
+                                tableTitle="Matchings Data"
+                                url={putUrl}
+                                deleteUrl={deleteUrl}
+                                setIsFetch={setIsFetchMatching}
+                                toast={toast}
+                            />
+                        </Box>
+                    </Box>
+                    <ToastContainer autoClose={2000} />
+                </Card>
             }
         </>
     )
